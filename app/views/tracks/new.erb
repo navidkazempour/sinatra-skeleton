@@ -10,19 +10,27 @@
 <%end%>
 
 <form method="post">
+
   <div>
     <label>Song title</label>
     <input type='text', name='song_title', value="<%= @track.song_title %>">
   </div>
+
   <div>
     <label>Author</label>
     <input type='text', name='author', value="<%= @track.author %>">
   </div>
+
   <div>
     <label>URL</label>
     <input type='text', name='url', value="<%= @track.url %>">
   </div>
+
   <div>
     <input type='submit' value='Submit'>
   </div>
+  
 </form>
+
+<hr/>
+<a href="/">Home</a>
