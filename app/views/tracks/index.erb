@@ -1,13 +1,25 @@
-<a href="/tracks/new"><strong>Add a new Song</strong></a>
+<% if session[:id] != nil %>
+  <hr/>
+  <a href="/users/profile">User home</a>
+  <hr/>
+<%else%>
+  <hr/>
+  <a href="/">Home</a>
+  <hr/>
+<%end%>
 
 <% @tracks.each do |track| %>
+<div>
   <h1><a href="/tracks/<%= track.id %>"><%= track.song_title %></a></h1>
   <h3>By: <%= track.author %></h3>
   <p>Link: <a href="<%= track.url %>"><%= track.url %></a></p>
+  <p>Uploaded by: <%= track.user.first_name %> at: <%= track.created_at %></p>
+  <p>Likes: <%= track.likes.count %></p>
+  <p>Rate: <%= 
+  if track.ratings.any?
+    track.ratings.average(:rate).round
+  end %></p>
+  <p>Comments:</p>
+  <hr/>
 </div>
 <%end%>
-
-<hr/>
-<a href="/users/logout">Logout</a>
-<hr/>
-<a href="/">Home</a> 

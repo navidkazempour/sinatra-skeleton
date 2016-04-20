@@ -1,0 +1,14 @@
+<% if @logged_in %>
+ <p>Welcome <%= @logged_in.first_name %></p>
+<% else %>
+  <p>Welcome Guest</p>
+<%end%>
+
+
+<a href="/users/tracks">View all your tracks</a>
+<hr/>
+<a href="/users/logout">Logout</a>
+<hr/>
+<a href="/tracks">Click on me to see all the tracks</a>
+<hr/>
+<a href="/tracks/new">Add a new track</a>
